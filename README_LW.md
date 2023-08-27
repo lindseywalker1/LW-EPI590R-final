@@ -1,7 +1,11 @@
 This is my README file created for EPI590R final project
 
 I have completed the specific objectives creating a descriptive statistics table,
-a regression table, a histogram figure, using inline text and creating pritned inline table output. 
+a regression table, a histogram figure, using inline text and creating pritned inline table output in the Quarto document. 
+
+
+In order for the Quarto document to render correctly, please run the "FULL_CODE_LW" R script first in order to fill the environment with the necessary dataframes and objects. 
+
 
 In my final project repository there are multiple files:
      - holds my quarto document "quarto_LW.qmd" with my code that renders a clean looking report following the specific objectives. 
@@ -51,7 +55,7 @@ tbl1 <- tbl_summary(
   add_overall() 
 tbl1
 
-# create objects to use for later inline text
+# create functions to use for later inline text inside using the data
 pan_pop <- inline_text(tbl1, variable = "Beats.Per.Minute", column = "panamanian pop")
 can_pop <- inline_text(tbl1, variable = "Beats.Per.Minute", column = "canadian pop")
 

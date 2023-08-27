@@ -25,7 +25,7 @@ music <- data1 |> select(Beats.Per.Minute, Energy, Liveness, Danceability,
 
 tbl1 <- tbl_summary(
   music,
-  by = Genre,
+  by = Genre, 
   label = list(Beats.Per.Minute ~ "Beats/ minute", Valence. ~ "Valence", 
                Length. ~ "Length", Acousticness.. ~ "Acousticness", Speechiness. ~ "Speechiness"),
   statistic = list(
@@ -40,7 +40,7 @@ tbl1 <- tbl_summary(
   add_overall() 
 tbl1
 
-# create objects to use for later inline text
+# create functions to use for later inline text
 pan_pop <- inline_text(tbl1, variable = "Beats.Per.Minute", column = "panamanian pop")
 can_pop <- inline_text(tbl1, variable = "Beats.Per.Minute", column = "canadian pop")
 

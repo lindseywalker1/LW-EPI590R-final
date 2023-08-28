@@ -2,10 +2,10 @@
 # running R script for my final project
 install.packages("here")
 here::here()
-setwd("data")
 getwd()
+setwd("/Users/lindseywalker/Documents/Documents/Documents/Documents/RSPH/FALL 2023/EPI590R/LW-EPI590R-final")
 
-here::here("data")
+here::here()
 
 
 # load the music data in 

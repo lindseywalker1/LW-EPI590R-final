@@ -3,6 +3,15 @@ title: "LW_Final_Quarto"
 format: html
 editor: visual
 ---
+```{r}
+#| echo: false
+#| eval: false
+here::here()
+getwd()
+setwd("/Users/lindseywalker/Documents/Documents/Documents/Documents/RSPH/FALL 2023/EPI590R/LW-EPI590R-final")
+```
+
+
 
 ## EPI 590R Final Project
 
@@ -12,15 +21,17 @@ The 50 songs are listed with their associated characteristics: genre, beats per 
 
 ## Descriptive Statistics
 
-Table 1 describes the average beats per minute, energy, liveness, danceability, valence, length, acousticness, speechiness, popularity of the top 50 songs from Spotify in 2019, stratified by genre.
+@tbl-one describes the average beats per minute, energy, liveness, danceability, valence, length, acousticness, speechiness, popularity of the top 50 songs from Spotify in 2019, stratified by genre.
 
 ```{r}
 #| echo: false
 #| error: false
 #| message: false
+#| label: tbl-one
+#| tbl-cap: Song Track Characteristics by Genre
 
 library(readr)
-data1 <- read_csv("/Users/lindseywalker/Documents/Documents/Documents/Documents/RSPH/FALL 2023/EPI590R/final-project-LW/data/top50.csv")
+data1 <- read_csv("top50.csv", show_col_types = FALSE)
 library(dplyr)
 
 music <- data1 |> select(Beats.Per.Minute, Energy, Liveness, Danceability, Valence., Length., Acousticness.., Speechiness., Popularity, Genre)

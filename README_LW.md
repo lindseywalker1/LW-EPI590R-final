@@ -13,17 +13,15 @@ In my final project repository there are multiple files:
      - top50.csv the orginal file that I read in and connected to my final project by using the here function
      
      
+  
      
-     
-     
-     
- #### i am also saving my final code here
-# running R script for my final project
+I am also saving my final code here as a second back up to the "FULL_CODE_LW"
+
 here::here()
 setwd("data")
 getwd()
 
-# load the music data in 
+Loading the music data in:
 library(readr)
 data1 <- read_csv("/Users/lindseywalker/Documents/Documents/Documents/Documents/
                   RSPH/FALL 2023/EPI590R/final-project-LW/data/top50.csv")
@@ -34,7 +32,7 @@ library(gtsummary)
 install.packages("dplyr")
 library(dbplyr)
 
-#create subset dataframe with only the variables i want to use
+Create subset dataframe with only the variables i want to use
 music <- data1 |> select(Beats.Per.Minute, Energy, Liveness, Danceability, 
                          Valence., Length., Acousticness.., Speechiness., Popularity, Genre)
 
@@ -55,25 +53,26 @@ tbl1 <- tbl_summary(
   add_overall() 
 tbl1
 
-# create functions to use for later inline text inside using the data
+create functions to use for later inline text inside using the data
 pan_pop <- inline_text(tbl1, variable = "Beats.Per.Minute", column = "panamanian pop")
 can_pop <- inline_text(tbl1, variable = "Beats.Per.Minute", column = "canadian pop")
 
 
-#Distribution of the continuous outcome: beats per minute:
+Distribution of the continuous outcome: beats per minute:
 hist(music$Beats.Per.Minute)
 
-# create inline stats to then report in the manuscript
+Create inline stats to then report in the manuscript:
 mean <- list(n=nrow(music),
              mean_bpm = mean(music$Beats.Per.Minute))
-#There were `r mean$n` songs with a mean of `r mean$mean_bpm` per minute. 
-#@fig-hist shows the majority of songs have 80-100 beats per minute.
+             
+There were `r mean$n` songs with a mean of `r mean$mean_bpm` per minute. 
+@fig-hist shows the majority of songs have 80-100 beats per minute.
 
 ## Regression
 
-# create linear regression models with Beats per minute as continuous outcome
-  # this model: looking at music characteristics that have to do with how 
-    #the music is composed: acousticness, speechiness, liveness, length
+Create linear regression models with Beats per minute as continuous outcome
+ Model 1: looking at music characteristics that have to do with how the music is composed: acousticness, speechiness, liveness, length
+ 
 linear_model <- lm(Beats.Per.Minute ~ Liveness + Acousticness.. + Speechiness. + Length.,
                    data = music)  
 tbl_composed <- tbl_regression(
@@ -81,8 +80,7 @@ tbl_composed <- tbl_regression(
   intercept = TRUE
 )
 
-#this model looks at music characteristics that have to do with how the sound 
-    #is interpretted: danceability, popularity, 
+Second model looks at music characteristics that have to do with how the sound is interpretted: danceability, popularity, 
 linear_model2 <- lm(Beats.Per.Minute ~ Danceability + Popularity + Energy + Valence. + Length.,
                     data = music)
 tbl_interp <- tbl_regression(
@@ -90,7 +88,7 @@ tbl_interp <- tbl_regression(
   intercept = TRUE
 )
 
-# combined the 2 linear regerssion models and create well formatted regression table
+Combined the 2 linear regerssion models and create well formatted regression table:
 tblreg <- tbl_merge(list(tbl_composed, tbl_interp),
           tab_spanner = c("**Music Composure Model**", "**Music Interpretation Model**"))
 tblreg
@@ -98,7 +96,7 @@ tblreg
 
 install.packages("renv")
 renv::init()
-#used renv to see my loaded packages in there from this project: dpylr, renv, gtsummary
+Used renv to see my loaded packages in there from this project: dpylr, renv, gtsummary
 
 
 

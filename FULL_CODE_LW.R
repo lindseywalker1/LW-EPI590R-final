@@ -10,14 +10,13 @@ here::here("data")
 
 # load the music data in 
 library(readr)
-data1 <- read_csv("/Users/lindseywalker/Documents/Documents/Documents/Documents/
-                  RSPH/FALL 2023/EPI590R/LW-EPI590R-final/data/top50.csv")
+data1 <- read_csv("top50.csv", show_col_types = FALSE)
 
 install.packages("gtsummary")
 library(gtsummary)
 
 install.packages("dplyr")
-library(dbplyr)
+library(dplyr)
 
 #create subset dataframe with only the variables i want to use
 music <- data1 |> select(Beats.Per.Minute, Energy, Liveness, Danceability, 

@@ -114,5 +114,5 @@ tblreg
 
 The musical genre Panamanian Pop has, on average, higher beats per minute (`r pan_pop`) bpmthan Canadian Pop (`r can_pop`) bmp.
 
-According to the regression results, there are no clear associations between beats per minute and the musical characteristics liveness, acousticness, speechiness, length, danceability, popularity, energy, and valence. Table 2 reports the p-values of each of the variables in the regression model. There are no statistically significant results.
+According to the regression results, there are no clear associations between beats per minute and the musical characteristics liveness, acousticness, speechiness, length, danceability, popularity, energy, and valence. @tblreg reports the p-values of each of the variables in the regression model. There are no statistically significant results.
 
